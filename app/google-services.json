@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "199469069124",
+    "firebase_url": "https://projectfinden.firebaseio.com",
+    "project_id": "projectfinden",
+    "storage_bucket": "projectfinden.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199469069124:android:5a135add9f0cf9afe8dd11",
+        "android_client_info": {
+          "package_name": "com.company.projectfinden"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199469069124-dcmd64jj6kl7vr08tor352h891s1b1f0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7WLXmJjpM3I76oAXWKzgOpm0yXOB1DIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199469069124-dcmd64jj6kl7vr08tor352h891s1b1f0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
