@@ -37,15 +37,24 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(v.getContext(), MenuFragment.class);
+                intent.putExtra("choice","2");
                 startActivity(intent);
             }
         });
         buttonGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(v.getContext(), FragmentTopicEducate.class);
+                Intent intent= new Intent(v.getContext(), MenuFragment.class);
+                intent.putExtra("choice","1");
                 startActivity(intent);
             }
         });
+        button115.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 }

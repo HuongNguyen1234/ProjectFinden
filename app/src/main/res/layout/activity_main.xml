@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E81B7"
-    tools:context=".com.activity.MainActivity" >
+    tools:context=".com.activity.MainActivity"
+    >
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="266dp"
         android:layout_height="270dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="210dp" />
+        android:layout_centerInParent="true"/>
 
 
     <!--    <ImageView-->
@@ -24,4 +24,4 @@
 <!--        android:layout_marginTop="203dp"-->
 <!--        android:layout_marginBottom="662dp"-->
 <!--        tools:srcCompat="@tools:sample/avatars" />-->
-</LinearLayout>
+</RelativeLayout>

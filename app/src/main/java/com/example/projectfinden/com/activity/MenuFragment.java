@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.projectfinden.R;
 import com.example.projectfinden.com.fragment.FragmentChoiceEducate;
+import com.example.projectfinden.com.fragment.FragmentTopicEducate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MenuFragment extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -19,13 +21,25 @@ public class MenuFragment extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        FragmentChoiceEducate fragmentChoiceEducate= new FragmentChoiceEducate();
-        fragmentTransaction.add(R.id.frameLayoutMenu, fragmentChoiceEducate);
-        fragmentTransaction.commit();
-        bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
-        bottomNavigationView.getMenu().findItem(R.id.action_study).setChecked(true);
+        Intent intent= getIntent();
+        int choice=Integer.parseInt(intent.getStringExtra("choice"));
+        if(choice==1){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.frameLayoutMenu, new FragmentTopicEducate());
+            fragmentTransaction.commit();
+            bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
+            bottomNavigationView.getMenu().findItem(R.id.action_guide).setChecked(true);
+        }
+        else if(choice==2){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.frameLayoutMenu, new FragmentChoiceEducate());
+            fragmentTransaction.commit();
+            bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
+            bottomNavigationView.getMenu().findItem(R.id.action_study).setChecked(true);
+        }
+
     }
 
     @Override
@@ -39,6 +53,10 @@ public class MenuFragment extends AppCompatActivity implements BottomNavigationV
 
         switch (item.getItemId()) {
             case R.id.action_guide: {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.frameLayoutMenu, new FragmentTopicEducate());
+                fragmentTransaction.commit();
             }
             break;
             case R.id.action_study: {

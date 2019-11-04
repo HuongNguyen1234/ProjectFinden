@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "199469069124-4u8bh6ptvu319rvqv24o6osdiam3qvaf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.projectfinden",
+            "certificate_hash": "adaf80823eb2c71aa764bfc03ef259ca0a76515c"
+          }
+        },
+        {
           "client_id": "199469069124-dcmd64jj6kl7vr08tor352h891s1b1f0.apps.googleusercontent.com",
           "client_type": 3
         }
