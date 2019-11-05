@@ -29,7 +29,7 @@ public class FragmentChoiceEducate extends Fragment {
            @Override
            public void onClick(View v) {
                FragmentTransaction fr= getFragmentManager().beginTransaction();
-               fr.replace(R.id.frameLayoutMenu,new FragmentTopicEducate());
+               fr.replace(R.id.frameLayoutMenu,new FragmentTopicEducate(1));
                fr.commit();
            }
        });
@@ -37,7 +37,7 @@ public class FragmentChoiceEducate extends Fragment {
            @Override
            public void onClick(View v) {
                FragmentTransaction fr= getFragmentManager().beginTransaction();
-               fr.replace(R.id.frameLayoutMenu,new FragmentTopicEducate());
+               fr.replace(R.id.frameLayoutMenu,new FragmentTopicEducate(2));
                fr.commit();
            }
        });

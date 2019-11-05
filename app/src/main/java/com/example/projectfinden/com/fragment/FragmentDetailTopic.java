@@ -72,7 +72,7 @@ public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, 
 
     @Override
     public void onFirebaseLoadSuccess(List<Step> stepList) {
-        adapter = new MyAdapter(this,this.movieList);
+        adapter = new MyAdapter(getContext(),this.movieList);
         viewPager.setAdapter(adapter);
     }
 

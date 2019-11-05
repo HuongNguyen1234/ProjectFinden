@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -28,8 +29,11 @@ public class MyAdapter extends PagerAdapter {
     List<Step> stepList;
     LayoutInflater inflater;
 
-    public MyAdapter(FragmentDetailTopic fragmentDetailTopic, List<Step> stepList) {
-    }
+//    public MyAdapter(Fragment fragment, List<Step> stepList) {
+//        this.context = fragment;
+//        this.stepList = stepList;
+//        inflater = LayoutInflater.from(context);
+//    }
 
     public MyAdapter(Context context, List<Step> stepList) {
         this.context = context;
@@ -59,13 +63,13 @@ public class MyAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.view_pager_item,container,false);
         //view
         ImageView movie_image = view.findViewById(R.id.movie_image);
-        TextView movie_title = view.findViewById(R.id.movie_title);
+//        TextView movie_title = view.findViewById(R.id.movie_title);
         TextView movie_description = view.findViewById(R.id.movie_description);
 //        FloatingActionButton btn_fav = view.findViewById(R.id.btn_fav);
 
         //set date
         Picasso.get().load(stepList.get(position).getImage()).into(movie_image);
-        movie_title.setText(stepList.get(position).getDescription());
+//        movie_title.setText(stepList.get(position).getDescription());
         movie_description.setText(stepList.get(position).getDescription());
 
         //event

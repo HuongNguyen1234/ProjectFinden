@@ -29,7 +29,7 @@ public class MenuFragment extends AppCompatActivity implements BottomNavigationV
         if(choice==1){
             FragmentManager fragmentManager = getSupportFragmentManager();
             androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.frameLayoutMenu, new FragmentTopicEducate());
+            fragmentTransaction.add(R.id.frameLayoutMenu, new FragmentTopicEducate(1));
             fragmentTransaction.commit();
             bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
             bottomNavigationView.getMenu().findItem(R.id.action_guide).setChecked(true);
@@ -66,7 +66,7 @@ public class MenuFragment extends AppCompatActivity implements BottomNavigationV
             case R.id.action_guide: {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 androidx.fragment.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayoutMenu, new FragmentTopicEducate());
+                fragmentTransaction.replace(R.id.frameLayoutMenu, new FragmentTopicEducate(1));
                 fragmentTransaction.commit();
             }
             break;

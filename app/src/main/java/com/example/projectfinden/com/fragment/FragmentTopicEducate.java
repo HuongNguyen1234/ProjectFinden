@@ -15,6 +15,11 @@ import com.example.projectfinden.R;
 
 public class FragmentTopicEducate extends Fragment {
     private Button buttonBatT;
+    private int option;
+
+    public FragmentTopicEducate(int option) {
+        this.option = option;
+    }
 
     @Nullable
     @Override
@@ -27,10 +32,18 @@ public class FragmentTopicEducate extends Fragment {
 
             @Override
             public void onClick(View v) {
-                FragmentTransaction fr= getFragmentManager().beginTransaction();
-                         fr.replace(R.id.frameLayoutMenu,new FragmentDetailTopic());
-                         fr.commit();
-                     }
+                if(option==1){
+                    FragmentTransaction fr= getFragmentManager().beginTransaction();
+                    fr.replace(R.id.frameLayoutMenu,new FragmentDetailTopic());
+                    fr.commit();
+                }
+                else if(option==2){
+                    FragmentTransaction fr= getFragmentManager().beginTransaction();
+                    fr.replace(R.id.frameLayoutMenu,new QuizletFragment("battinh"));
+                    fr.commit();
+                }
+            }
+
         });
         return view;
     }
