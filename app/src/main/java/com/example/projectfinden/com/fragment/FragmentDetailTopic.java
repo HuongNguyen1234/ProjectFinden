@@ -29,6 +29,7 @@ import java.util.Map;
 public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, ValueEventListener {
     ViewPager viewPager;
     MyAdapter adapter;
+    List<Step> movieList = new ArrayList<>();
     DatabaseReference ref;
     IFirebaseLoadDone iFirebaseLoadDone;
     @Nullable
@@ -71,7 +72,7 @@ public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, 
 
     @Override
     public void onFirebaseLoadSuccess(List<Step> stepList) {
-        adapter = new MyAdapter(this,stepList);
+        adapter = new MyAdapter(this,this.movieList);
         viewPager.setAdapter(adapter);
     }
 
@@ -83,12 +84,12 @@ public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, 
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        List<Step> movieList = new ArrayList<>();
+//        List<Step> movieList = new ArrayList<>();
         Iterable<DataSnapshot> s=dataSnapshot.getChildren();
         for (DataSnapshot movieSnapShot:dataSnapshot.getChildren())
-            movieList.add(movieSnapShot.getValue(Step.class));
+            this.movieList.add(movieSnapShot.getValue(Step.class));
 
-        iFirebaseLoadDone.onFirebaseLoadSuccess(movieList);
+        iFirebaseLoadDone.onFirebaseLoadSuccess(this.movieList);
     }
 
     @Override
