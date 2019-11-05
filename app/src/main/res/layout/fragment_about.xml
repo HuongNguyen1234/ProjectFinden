@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E81B7">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="254dp"
+        android:layout_height="166dp"
+        android:layout_above="@+id/textViewAbout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/logo2" />
+
+    <TextView
+        android:id="@+id/textViewAbout"
+        android:layout_width="334dp"
+        android:layout_height="346dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="46dp"
+        android:text="Ứng dụng Finden là ứng dụng di động hướng dẫn xử lí cấp cứu các tình huống khẩn cấp thường gặp nhằm:\n 1.Bảo tồn hoi thở của nạn nhân. \n 2.Giúp tình trạng không xấu đi. \n 3.Thúc đẩy quá trình hồi phục tốt hơn. \nChúng tôi mong muốn góp phần giúp cộng đồng xử lí tốt những trường hợp khẩn cấp, bảo vệ được tính mạng của bản thân và những người xung quanh.\nỨng dụng được hỗ trợ chuyên môn từ các cố vấn chuyên môn để đưa ra những hướng dẫn hiệu quả nhất."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+</RelativeLayout>

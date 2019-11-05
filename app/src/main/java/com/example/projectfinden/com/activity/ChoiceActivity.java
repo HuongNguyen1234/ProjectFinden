@@ -27,7 +27,7 @@ public class ChoiceActivity extends AppCompatActivity {
         imageView=findViewById(R.id.image);
         buttonGuide= findViewById(R.id.buttonStudyEducate);
         buttonEducate= findViewById(R.id.buttonEducate);
-        buttonAbout= findViewById(R.id.buttonGame);
+        buttonAbout= findViewById(R.id.buttonAbout);
         button115= findViewById(R.id.button115);
         //show logo
         String url="https://firebasestorage.googleapis.com/v0/b/projectfinden.appspot.com/o/logoFinden.png?alt=media&token=875e505a-3dd5-4074-ad22-0a49c0205dba";
@@ -53,6 +53,14 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        buttonAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(v.getContext(), MenuFragment.class);
+                intent.putExtra("choice","3");
+                startActivity(intent);
             }
         });
 

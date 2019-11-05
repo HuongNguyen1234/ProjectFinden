@@ -1,4 +1,4 @@
-package com.example.projectfinden.com.entity;
+package com.example.projectfinden.com.model;
 
 public class Step {
     private int id;

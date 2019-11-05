@@ -18,14 +18,22 @@ import com.example.projectfinden.R;
 
 public class FragmentChoiceEducate extends Fragment {
     Button buttonStudy;
-    Button buttonQuizlet;
+    Button buttonGame;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        View view= inflater.inflate(R.layout.fragment_choice_educate,container,false);
         buttonStudy= view.findViewById(R.id.buttonStudyEducate);
-       buttonQuizlet=view.findViewById(R.id.buttonGame);
+        buttonGame=view.findViewById(R.id.buttonGame);
        buttonStudy.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               FragmentTransaction fr= getFragmentManager().beginTransaction();
+               fr.replace(R.id.frameLayoutMenu,new FragmentTopicEducate());
+               fr.commit();
+           }
+       });
+       buttonGame.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                FragmentTransaction fr= getFragmentManager().beginTransaction();
