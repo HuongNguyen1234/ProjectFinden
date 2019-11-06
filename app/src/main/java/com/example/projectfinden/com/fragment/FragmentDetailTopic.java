@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.projectfinden.R;
 import com.example.projectfinden.com.Interface.IFirebaseLoadDone;
 import com.example.projectfinden.com.adapter.MyAdapter;
+import com.example.projectfinden.com.model.Question;
 import com.example.projectfinden.com.model.Step;
 import com.example.projectfinden.com.transformer.DepthPageTransformer;
 import com.google.firebase.database.DataSnapshot;
@@ -71,6 +72,11 @@ public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, 
     }
 
     @Override
+    public void onFirebaseLoadSuccessQuestion(List<Question> questionList) {
+
+    }
+
+    @Override
     public void onFirebaseLoadSuccess(List<Step> stepList) {
         adapter = new MyAdapter(getContext(),this.movieList);
         viewPager.setAdapter(adapter);
@@ -88,7 +94,6 @@ public class FragmentDetailTopic extends Fragment implements IFirebaseLoadDone, 
         Iterable<DataSnapshot> s=dataSnapshot.getChildren();
         for (DataSnapshot movieSnapShot:dataSnapshot.getChildren())
             this.movieList.add(movieSnapShot.getValue(Step.class));
-
         iFirebaseLoadDone.onFirebaseLoadSuccess(this.movieList);
     }
 

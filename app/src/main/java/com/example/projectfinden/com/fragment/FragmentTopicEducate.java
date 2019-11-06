@@ -39,7 +39,7 @@ public class FragmentTopicEducate extends Fragment {
                 }
                 else if(option==2){
                     FragmentTransaction fr= getFragmentManager().beginTransaction();
-                    fr.replace(R.id.frameLayoutMenu,new QuizletFragment("battinh"));
+                    fr.replace(R.id.frameLayoutMenu,new QuizletFragment());
                     fr.commit();
                 }
             }
