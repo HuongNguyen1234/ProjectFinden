@@ -92,121 +92,131 @@ public class QuizletFragment extends Fragment implements IFirebaseLoadDone, Valu
 
     @Override
     public void onFirebaseLoadSuccessQuestion(final List<Question> questionList) {
-
-                final Question question= questionList.get(i);
-                textViewQuestion.setText(question.getNumber()+": "+ question.getContent());
-                textViewA.setText(question.getOptions().get(0).getValue());
-                textViewB.setText(question.getOptions().get(1).getValue());
-                textViewC.setText(question.getOptions().get(2).getValue());
-                textViewD.setText(question.getOptions().get(3).getValue());
-
-                for(Option option : question.getOptions()){
-                    if(option.isAnswer()==true){
-                        idAnswer= option.getId();
-                        return;
-                    }
-                }
-                buttonA.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        buttonA.setBackground(Drawable.createFromPath("#1A74B8"));
-                        if(idAnswer==1){
-                            dialog.setContentView(R.layout.dialog_check_question_correct);
-
-                        }
-                        else{
-                            dialog.setContentView(R.layout.dialog_check_question_error);
-                            final Question question= questionList.get(i);
-                            textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                            textViewA.setText(question.getOptions().get(0).getValue());
-                            textViewB.setText(question.getOptions().get(1).getValue());
-                            textViewC.setText(question.getOptions().get(2).getValue());
-                            textViewD.setText(question.getOptions().get(3).getValue());
-                            setText();
-
-                        }
-                    }
-                });
-                buttonB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        buttonB.setBackground(Drawable.createFromPath("#1A74B8"));
-                        if(idAnswer==2){
-                            dialog.setContentView(R.layout.dialog_check_question_correct);
-                        }
-                        else{
-                            dialog.setContentView(R.layout.dialog_check_question_error);
-                            final Question question= questionList.get(i);
-                            textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                            textViewA.setText(question.getOptions().get(0).getValue());
-                            textViewB.setText(question.getOptions().get(1).getValue());
-                            textViewC.setText(question.getOptions().get(2).getValue());
-                            textViewD.setText(question.getOptions().get(3).getValue());
-                            setText();
-
-
-                        }
-                    }
-                });
-                buttonC.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        buttonC.setBackground(Drawable.createFromPath("#1A74B8"));
-                        if(idAnswer==3){
-                            dialog.setContentView(R.layout.dialog_check_question_correct);
-                        }
-                        else{
-                            dialog.setContentView(R.layout.dialog_check_question_error);
-                            final Question question= questionList.get(i);
-                            textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                            textViewA.setText(question.getOptions().get(0).getValue());
-                            textViewB.setText(question.getOptions().get(1).getValue());
-                            textViewC.setText(question.getOptions().get(2).getValue());
-                            textViewD.setText(question.getOptions().get(3).getValue());
-                            setText();
-
-
-                        }
-                    }
-                });
-                buttonD.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        buttonD.setBackground(Drawable.createFromPath("#1A74B8"));
-                        if(idAnswer==4){
-                            dialog.setContentView(R.layout.dialog_check_question_correct);
-
-                        }
-                        else{
-                            dialog.setContentView(R.layout.dialog_check_question_error);
-                            final Question question= questionList.get(i);
-                            textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                            textViewA.setText(question.getOptions().get(0).getValue());
-                            textViewB.setText(question.getOptions().get(1).getValue());
-                            textViewC.setText(question.getOptions().get(2).getValue());
-                            textViewD.setText(question.getOptions().get(3).getValue());
-                            setText();
-                        }
-                    }
-                });
+        if (questionList == null || questionList.isEmpty()) {
+            textViewA.setText("Does not have any questions!");
+//            textViewB.setVisibility(View.INVISIBLE);
+//            textViewC.setVisibility(View.INVISIBLE);
+//            textViewD.setVisibility(View.INVISIBLE);
+//            buttonA.setVisibility(View.INVISIBLE);
+//            buttonB.setVisibility(View.INVISIBLE);
+//            buttonC.setVisibility(View.INVISIBLE);
+//            buttonD.setVisibility(View.INVISIBLE);
+            return;
         }
-     public void setText(){
-         if(idAnswer==1){
-             textAnswer.setText("A");
-         }else if(idAnswer==2){
-             textAnswer.setText("B");
-         }
-         else if(idAnswer==3){
-             textAnswer.setText("C");
-         }
-         else if(idAnswer==4){
-             textAnswer.setText("D");
-         }
-     }
+        final Question question= questionList.get(i);
+        textViewQuestion.setText(question.getNumber()+": "+ question.getContent());
+        textViewA.setText(question.getOptions().get(0).getValue());
+        textViewB.setText(question.getOptions().get(1).getValue());
+        textViewC.setText(question.getOptions().get(2).getValue());
+        textViewD.setText(question.getOptions().get(3).getValue());
+
+        for(Option option : question.getOptions()){
+            if(option.isAnswer()==true){
+                idAnswer= option.getId();
+                return;
+            }
+        }
+        buttonA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonA.setBackground(Drawable.createFromPath("#1A74B8"));
+                if(idAnswer==1){
+                    dialog.setContentView(R.layout.dialog_check_question_correct);
+
+                }
+                else{
+                    dialog.setContentView(R.layout.dialog_check_question_error);
+                    final Question question= questionList.get(i);
+                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
+                    textViewA.setText(question.getOptions().get(0).getValue());
+                    textViewB.setText(question.getOptions().get(1).getValue());
+                    textViewC.setText(question.getOptions().get(2).getValue());
+                    textViewD.setText(question.getOptions().get(3).getValue());
+                    setText();
+
+                }
+            }
+        });
+        buttonB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonB.setBackground(Drawable.createFromPath("#1A74B8"));
+                if(idAnswer==2){
+                    dialog.setContentView(R.layout.dialog_check_question_correct);
+                }
+                else{
+                    dialog.setContentView(R.layout.dialog_check_question_error);
+                    final Question question= questionList.get(i);
+                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
+                    textViewA.setText(question.getOptions().get(0).getValue());
+                    textViewB.setText(question.getOptions().get(1).getValue());
+                    textViewC.setText(question.getOptions().get(2).getValue());
+                    textViewD.setText(question.getOptions().get(3).getValue());
+                    setText();
+
+
+                }
+            }
+        });
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonC.setBackground(Drawable.createFromPath("#1A74B8"));
+                if(idAnswer==3){
+                    dialog.setContentView(R.layout.dialog_check_question_correct);
+                }
+                else{
+                    dialog.setContentView(R.layout.dialog_check_question_error);
+                    final Question question= questionList.get(i);
+                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
+                    textViewA.setText(question.getOptions().get(0).getValue());
+                    textViewB.setText(question.getOptions().get(1).getValue());
+                    textViewC.setText(question.getOptions().get(2).getValue());
+                    textViewD.setText(question.getOptions().get(3).getValue());
+                    setText();
+
+
+                }
+            }
+        });
+        buttonD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonD.setBackground(Drawable.createFromPath("#1A74B8"));
+                if(idAnswer==4){
+                    dialog.setContentView(R.layout.dialog_check_question_correct);
+
+                }
+                else{
+                    dialog.setContentView(R.layout.dialog_check_question_error);
+                    final Question question= questionList.get(i);
+                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
+                    textViewA.setText(question.getOptions().get(0).getValue());
+                    textViewB.setText(question.getOptions().get(1).getValue());
+                    textViewC.setText(question.getOptions().get(2).getValue());
+                    textViewD.setText(question.getOptions().get(3).getValue());
+                    setText();
+                }
+            }
+        });
+    }
+    public void setText(){
+        if(idAnswer==1){
+            textAnswer.setText("A");
+        }else if(idAnswer==2){
+            textAnswer.setText("B");
+        }
+        else if(idAnswer==3){
+            textAnswer.setText("C");
+        }
+        else if(idAnswer==4){
+            textAnswer.setText("D");
+        }
+    }
 
     @Override
     public void onFirebaseLoadSuccess(List<Step> movieList) {
-       ;
+        ;
     }
 
     @Override
