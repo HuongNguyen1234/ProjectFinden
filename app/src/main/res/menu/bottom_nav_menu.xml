@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_guide"
+        android:icon="@drawable/untitled_1_02"
+        android:title=""
+        app:iconTint="@color/colorBackgroudBlue"
+        android:color="@color/colorAccent"
+        android:enabled="true"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_study"
+        android:icon="@drawable/icon_study"
+        android:title=""
+        android:enabled="true"
+        app:iconTint="@color/colorBackgroudBlue"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_115"
+        android:icon="@drawable/icon_call"
+        android:title=""
+        android:enabled="true"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_person"
+        android:icon="@drawable/icon_person"
+        android:title=""
+        android:color="@color/colorAccent"
+        android:enabled="true"
+        android:layout_width="20dp"
+        app:iconTint="@color/colorBackgroudBlue"
+        android:layout_height="20dp"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/icon_about2"
+        android:title=""
+        android:color="@color/colorAccent"
+        android:enabled="true"
+        android:layout_width="20dp"
+        app:iconTint="@color/colorBackgroudBlue"
+        android:layout_height="20dp"
+        app:showAsAction="ifRoom" />
+
+<!--    <item-->
+<!--        android:id="@+id/action_nearby"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_action_nearby"-->
+<!--        android:title="Nearby"-->
+<!--        app:showAsAction="ifRoom" />-->
+</menu>

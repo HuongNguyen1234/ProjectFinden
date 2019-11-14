@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="99dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-2dp"
+        android:background="#FF103D"
+        android:gravity="center_vertical"
+        android:text="  SAI"
+        android:textColor="#fff"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/tvQuestionContent"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="29dp"
+        android:text="Question Content" />
+
+    <TextView
+        android:id="@+id/tvA"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvQuestionContent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:text="tvA" />
+
+    <TextView
+        android:id="@+id/tvB"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvA"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:text="tvB" />
+
+    <TextView
+        android:id="@+id/tvC"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvB"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:text="tvC" />
+
+    <TextView
+        android:id="@+id/tvD"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvC"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="23dp"
+        android:text="tvD" />
+
+    <TextView
+        android:id="@+id/tvCorrectAnswerTitle"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvD"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="23dp"
+        android:text="Đáp án đúng: "
+        android:textColor="#3186C0"/>
+
+    <TextView
+        android:id="@+id/tvCorrectAnswer"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/tvCorrectAnswerTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="23dp"
+        android:text=" "
+        android:textColor="#3186C0" />
+
+    <Button
+        android:id="@+id/buttonTiepTucSai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/border"
+        android:text="Tiếp tục" />
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A8CBF"
+    tools:context="com.example.projectfinden.com.activity.ChoiceActivity">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="299dp"
+        android:layout_height="254dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStudyEducate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <Button
+        android:id="@+id/buttonEducate"
+        style="@style/AppTheme.RoundedCornerMaterialButton"
+        android:layout_width="325dp"
+        android:layout_height="61dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:background="#FFFFFF"
+        android:text="Đào tạo sơ cứu"
+        android:textColor="#0F73AD"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAbout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button115"
+        style="@style/AppTheme.RoundedCornerMaterialButton"
+        android:layout_width="325dp"
+        android:layout_height="61dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:background="@color/colorAccent"
+        android:text="115"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStudyEducate"
+        style="@style/AppTheme.RoundedCornerMaterialButton"
+        android:layout_width="325dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:text="Hướng dẫn sơ cấp cứu khẩn cấp"
+        android:textColor="#0F73AD"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEducate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAbout"
+        style="@style/AppTheme.RoundedCornerMaterialButton"
+        android:layout_width="325dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="12dp"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:text="Về chúng tôi"
+        android:textColor="#0F73AD"
+        app:layout_constraintBottom_toTopOf="@+id/button115"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
