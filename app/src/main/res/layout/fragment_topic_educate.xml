@@ -45,7 +45,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_battinh" />
+                    android:src="@drawable/icon_battinh1" />
 
                 <Button
                     android:id="@+id/buttonBatTinh"
@@ -83,7 +83,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_chaymau" />
+                    android:src="@drawable/icon_chaymau1" />
 
                 <Button
                     android:layout_width="120dp"
@@ -121,7 +121,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_bong" />
+                    android:src="@drawable/icon_bong1" />
 
                 <Button
                     android:layout_width="120dp"
@@ -159,7 +159,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_gayxuong" />
+                    android:src="@drawable/icon_gayxuong1" />
 
                 <Button
                     android:layout_width="120dp"
@@ -196,7 +196,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_dotquy" />
+                    android:src="@drawable/icon_dotquy1" />
 
                 <Button
                     android:layout_width="120dp"
@@ -234,7 +234,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="TODO"
-                    android:src="@drawable/icon_dautim" />
+                    android:src="@drawable/icon_dautim1" />
 
                 <Button
                     android:layout_width="120dp"

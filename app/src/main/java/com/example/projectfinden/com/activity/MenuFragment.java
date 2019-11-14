@@ -3,9 +3,9 @@ package com.example.projectfinden.com.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -79,6 +79,7 @@ public class MenuFragment extends AppCompatActivity implements BottomNavigationV
             }
             break;
             case R.id.action_115: {
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "115", null)));
             }
             break;
             case R.id.action_person: {

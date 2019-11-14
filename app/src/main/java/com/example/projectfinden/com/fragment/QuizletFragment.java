@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,14 +35,14 @@ import java.util.List;
  */
 public class QuizletFragment extends Fragment implements IFirebaseLoadDone, ValueEventListener {
     private String topic;
-    List<Question> questionList = new ArrayList<>();
-    Dialog dialog;
+    public static List<Question> questionList = new ArrayList<>();
     DatabaseReference ref;
     IFirebaseLoadDone iFirebaseLoadDone;
     Button buttonA,buttonB,buttonC,buttonD,buttonTiepTucSai,buttonTiepTucDung;
     TextView textViewQuestion,textViewA,textViewB,textViewC,textViewD,textQuestion,textA,textB,textC,textD,textAnswer;
     int idAnswer=0;
     int i=0;
+    public static int correctAnswerCount = 0;
 
 
     public QuizletFragment() {
@@ -53,27 +54,48 @@ public class QuizletFragment extends Fragment implements IFirebaseLoadDone, Valu
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_quizlet, container, false);
-        dialog= new Dialog(getContext());
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         ref = database.getReference("/").child("FirstAidInstructions").child("fainting").child("quizlet").child("question");
         buttonA=view.findViewById(R.id.buttonA);
         buttonB=view.findViewById(R.id.buttonB);
         buttonC=view.findViewById(R.id.buttonC);
         buttonD=view.findViewById(R.id.buttonD);
-        textQuestion= dialog.findViewById(R.id.textViewQuestionSai);
-        textA= dialog.findViewById(R.id.textViewAsai);
-        textB= dialog.findViewById(R.id.textViewBsai);
-        textC= dialog.findViewById(R.id.textViewCsai);
-        textD= dialog.findViewById(R.id.textViewDsai);
-        textAnswer= dialog.findViewById(R.id.textViewAnswer);
-        buttonTiepTucDung= dialog.findViewById(R.id.buttonTiepTucDung);
-        buttonTiepTucSai= dialog.findViewById(R.id.buttonTiepTucSai);
+
         textViewQuestion=view.findViewById(R.id.textViewQuestion);
-        textViewA=view.findViewById(R.id.buttonA);
-        textViewB=view.findViewById(R.id.buttonB);
-        textViewC=view.findViewById(R.id.buttonC);
-        textViewD=view.findViewById(R.id.buttonD);
+        textViewA=view.findViewById(R.id.textViewA);
+        textViewB=view.findViewById(R.id.textViewB);
+        textViewC=view.findViewById(R.id.textViewC);
+        textViewD=view.findViewById(R.id.textViewD);
         iFirebaseLoadDone= (IFirebaseLoadDone) this;
+        buttonA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                buttonA.setBackground(Drawable.createFromPath("#1A74B8"));
+                onButtonClickDo(1);
+            }
+        });
+        buttonB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                buttonB.setBackground(Drawable.createFromPath("#1A74B8"));
+                onButtonClickDo(2);
+            }
+        });
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                buttonC.setBackground(Drawable.createFromPath("#1A74B8"));
+                onButtonClickDo(3);
+            }
+        });
+        buttonD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                buttonD.setBackground(Drawable.createFromPath("#1A74B8"));
+                onButtonClickDo(4);
+            }
+        });
         return view;
     }
 
@@ -94,13 +116,6 @@ public class QuizletFragment extends Fragment implements IFirebaseLoadDone, Valu
     public void onFirebaseLoadSuccessQuestion(final List<Question> questionList) {
         if (questionList == null || questionList.isEmpty()) {
             textViewA.setText("Does not have any questions!");
-//            textViewB.setVisibility(View.INVISIBLE);
-//            textViewC.setVisibility(View.INVISIBLE);
-//            textViewD.setVisibility(View.INVISIBLE);
-//            buttonA.setVisibility(View.INVISIBLE);
-//            buttonB.setVisibility(View.INVISIBLE);
-//            buttonC.setVisibility(View.INVISIBLE);
-//            buttonD.setVisibility(View.INVISIBLE);
             return;
         }
         final Question question= questionList.get(i);
@@ -116,89 +131,7 @@ public class QuizletFragment extends Fragment implements IFirebaseLoadDone, Valu
                 return;
             }
         }
-        buttonA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonA.setBackground(Drawable.createFromPath("#1A74B8"));
-                if(idAnswer==1){
-                    dialog.setContentView(R.layout.dialog_check_question_correct);
 
-                }
-                else{
-                    dialog.setContentView(R.layout.dialog_check_question_error);
-                    final Question question= questionList.get(i);
-                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                    textViewA.setText(question.getOptions().get(0).getValue());
-                    textViewB.setText(question.getOptions().get(1).getValue());
-                    textViewC.setText(question.getOptions().get(2).getValue());
-                    textViewD.setText(question.getOptions().get(3).getValue());
-                    setText();
-
-                }
-            }
-        });
-        buttonB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonB.setBackground(Drawable.createFromPath("#1A74B8"));
-                if(idAnswer==2){
-                    dialog.setContentView(R.layout.dialog_check_question_correct);
-                }
-                else{
-                    dialog.setContentView(R.layout.dialog_check_question_error);
-                    final Question question= questionList.get(i);
-                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                    textViewA.setText(question.getOptions().get(0).getValue());
-                    textViewB.setText(question.getOptions().get(1).getValue());
-                    textViewC.setText(question.getOptions().get(2).getValue());
-                    textViewD.setText(question.getOptions().get(3).getValue());
-                    setText();
-
-
-                }
-            }
-        });
-        buttonC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonC.setBackground(Drawable.createFromPath("#1A74B8"));
-                if(idAnswer==3){
-                    dialog.setContentView(R.layout.dialog_check_question_correct);
-                }
-                else{
-                    dialog.setContentView(R.layout.dialog_check_question_error);
-                    final Question question= questionList.get(i);
-                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                    textViewA.setText(question.getOptions().get(0).getValue());
-                    textViewB.setText(question.getOptions().get(1).getValue());
-                    textViewC.setText(question.getOptions().get(2).getValue());
-                    textViewD.setText(question.getOptions().get(3).getValue());
-                    setText();
-
-
-                }
-            }
-        });
-        buttonD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonD.setBackground(Drawable.createFromPath("#1A74B8"));
-                if(idAnswer==4){
-                    dialog.setContentView(R.layout.dialog_check_question_correct);
-
-                }
-                else{
-                    dialog.setContentView(R.layout.dialog_check_question_error);
-                    final Question question= questionList.get(i);
-                    textQuestion.setText(question.getNumber()+": "+ question.getContent());
-                    textViewA.setText(question.getOptions().get(0).getValue());
-                    textViewB.setText(question.getOptions().get(1).getValue());
-                    textViewC.setText(question.getOptions().get(2).getValue());
-                    textViewD.setText(question.getOptions().get(3).getValue());
-                    setText();
-                }
-            }
-        });
     }
     public void setText(){
         if(idAnswer==1){
@@ -239,5 +172,77 @@ public class QuizletFragment extends Fragment implements IFirebaseLoadDone, Valu
     public void onStop() {
         ref.removeEventListener(this);
         super.onStop();
+    }
+
+    public void onButtonClickDo(int num) {
+        Button continueBtn = null;
+        final Dialog dialog= new Dialog(getContext());
+        if(idAnswer == num){
+            dialog.setContentView(R.layout.dialog_check_question_correct);
+            correctAnswerCount++;
+            continueBtn = dialog.findViewById(R.id.buttonTiepTucDung);
+            i++;
+            continueBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                    doContinueClick();
+                }
+            });
+            dialog.show();
+        }
+        else{
+            dialog.setContentView(R.layout.dialog_check_question_error);
+            final Question question= questionList.get(i);
+            TextView mainTitle = dialog.findViewById(R.id.tvTitle);
+            mainTitle.setText(" SAI");
+            TextView tvQuestionContent = dialog.findViewById(R.id.tvQuestionContent);
+            TextView tvA = dialog.findViewById(R.id.tvA);
+            TextView tvB = dialog.findViewById(R.id.tvB);
+            TextView tvC = dialog.findViewById(R.id.tvC);
+            TextView tvD = dialog.findViewById(R.id.tvD);
+            TextView tvCorrectAnswer = dialog.findViewById(R.id.tvCorrectAnswer);
+            continueBtn = dialog.findViewById(R.id.buttonTiepTucSai);
+            tvQuestionContent.setText(question.getNumber() == null ? "" : question.getNumber() + ": " + question.getContent() == null ? "" : question.getContent());
+            tvA.setText(question.getOptions().get(0).getValue());
+            tvB.setText(question.getOptions().get(1).getValue());
+            tvC.setText(question.getOptions().get(2).getValue());
+            tvD.setText(question.getOptions().get(3).getValue());
+            for(Option option : question.getOptions()){
+                if(option.isAnswer()==true){
+                    tvCorrectAnswer.setText(option.getValue() == null ? "" : option.getValue());
+                }
+            }
+            i++;
+            continueBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                    doContinueClick();
+                }
+            });
+            dialog.show();
+        }
+    }
+    public void doContinueClick() {
+        if (i > questionList.size() - 1) {
+            FragmentTransaction fr= getFragmentManager().beginTransaction();
+            fr.replace(R.id.frameLayoutMenu,new FinishQuizFragment());
+            fr.commit();
+            return;
+        }
+        final Question question= questionList.get(i);
+        textViewQuestion.setText(question.getNumber()+": "+ question.getContent());
+        textViewA.setText(question.getOptions().get(0).getValue());
+        textViewB.setText(question.getOptions().get(1).getValue());
+        textViewC.setText(question.getOptions().get(2).getValue());
+        textViewD.setText(question.getOptions().get(3).getValue());
+
+        for(Option option : question.getOptions()){
+            if(option.isAnswer()==true){
+                idAnswer= option.getId();
+                break;
+            }
+        }
     }
 }
